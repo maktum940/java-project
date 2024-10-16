@@ -3,19 +3,17 @@ public class Booking {
     protected Tour tour;
     protected String status;
 
-    // Constructor
+    //constructor
     public Booking(Customer customer, Tour tour) {
         this.customer = customer;
         this.tour = tour;
-        this.status = "Confirmed"; // default booking status
+        this.status = "Confirmed";
     }
 
-    // Method to cancel booking
     public void cancelBooking() {
         this.status = "Cancelled";
     }
 
-    // Display booking information
     public void displayBookingInfo() {
         System.out.println("Booking Information:");
         customer.displayCustomerInfo();
