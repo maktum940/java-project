@@ -4,19 +4,22 @@ public class Book {
     private String title;
     private String author;
     private ArrayList<String> genres;
-    private int ID;
+    private boolean available;
+    private int id;
 
-    public Book(String title, String author, ArrayList<String> genres, int ID) {
+    public Book(String title, String author, ArrayList<String> genres, boolean available, int id) {
         this.title = title;
         this.author = author;
         this.genres = genres;
-        this.ID = ID;
+        this.available = available;
+        this.id = id;
     }
 
     public void displayBookInfo(){
         System.out.println("Title: " + title);
         System.out.println("Author: " + author);
         System.out.println("Genres: " + genres);
-        System.out.println("ID: " + ID);
+        System.out.println("available: " + available);
+        System.out.println("ID: " + id);
     }
 }
