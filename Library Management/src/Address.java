@@ -13,9 +13,7 @@ public class Address {
     public String getRoad() {
         return road;
     }
-    public String getHouse() {
-        return house;
-    }
+    public String getHouse() {return house;}
     public String getCity() {
         return city;
     }

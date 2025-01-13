@@ -1,6 +1,4 @@
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -12,7 +10,7 @@ public class LibraryManagementSystem {
 
     public void initialize() {
         // initializing all the data like 5 users and 11 books.
-        //user initializing
+        //-------------------------------------------user initializing-------------------------------------------//
         Address address = new Address("123/1", "House_1", "Dhaka1");
         Contact contact = new Contact("Email_1", "Phone_1");
         User user = new User("Maktum1", address, contact);
@@ -38,39 +36,41 @@ public class LibraryManagementSystem {
         user = new User("Maktum5", address, contact);
         users.add(user);
 
-        //book initializing
-        Book book = new Book("Gulliver's Travels", "Jonathan Swift", "Adventure", true, 1);
+        //---------------------------------------------book initializing--------------------------------------//
+        Book book = new Book("Gulliver's Travels", "Jonathan Swift", "Adventure", true, 1001);
         books.add(book);
 
-        book = new Book("The Art of War", "sun tzu", "military strategy", true, 2);
+        book = new Book("The Art of War", "sun tzu", "military strategy", true, 1002);
         books.add(book);
 
-        book = new Book("Harry Potter", "Joanne Rowling", "Fantasy", true, 3);
+        book = new Book("Harry Potter", "Joanne Rowling", "Fantasy", true, 1003);
         books.add(book);
 
-        book = new Book("Game of Thrones", "George Raymond Martin", "Fantasy", true, 4);
+        book = new Book("Game of Thrones", "George Raymond Martin", "Fantasy", true, 1004);
         books.add(book);
 
-        book = new Book("Java: The Complete Reference", "Herbert Schildt", "Computer Science", true, 5);
+        book = new Book("Java: The Complete Reference", "Herbert Schildt", "Computer Science", true, 1005);
         books.add(book);
 
-        book = new Book("The C++ Programming Language", "Bjarne Stroustrup", "Computer Science", true, 6);
+        book = new Book("The C++ Programming Language", "Bjarne Stroustrup", "Computer Science", true, 1006);
         books.add(book);
 
-        book = new Book("Pattern Recognition and Machine Learning", "Christopher M. Bishop", "Computer Science", true, 7);
+        book = new Book("Pattern Recognition and Machine Learning", "Christopher M. Bishop", "Computer Science", true, 1007);
         books.add(book);
 
-        book = new Book("The Laws of Human Nature", "Robert Greene", "psychology", true, 8);
+        book = new Book("The Laws of Human Nature", "Robert Greene", "psychology", true, 1008);
         books.add(book);
 
-        book = new Book("The Old Man and The Sea", "Ernest Hemingway", "Adventure", true, 9);
+        book = new Book("The Old Man and The Sea", "Ernest Hemingway", "Adventure", true, 1009);
         books.add(book);
 
-        book = new Book("Lights Of Reality", "Said Nursi", "religions", true, 10);
+        book = new Book("Lights Of Reality", "Said Nursi", "religions", true, 1010);
         books.add(book);
 
-        book = new Book("The Art of Thinking Clearly", "Rolf Dobelli", "non-fiction", true, 11);
+        book = new Book("The Art of Thinking Clearly", "Rolf Dobelli", "non-fiction", true, 1011);
         books.add(book);
+
+        //----------------------------------------------Giving Books to user---------------------------------//
     }
 
     public void addUser() {
@@ -101,13 +101,58 @@ public class LibraryManagementSystem {
         System.out.print("Enter all the genre the book belongs to: ");
         String genre = s.nextLine();
         boolean available = true;
-        int id = 0;
+        int temp = books.size()-1;
+        int id = books.get(temp).getId()+1;
 
         Book book = new Book(title, author, genre, available, id);
         books.add(book);
     }
 
-    public void displayUsersInfo() {
+//    public void test() {
+//        ArrayList<Book> tempBooks = new ArrayList<>();
+//        Collections.addAll(tempBooks, books.get(0), books.get(1));
+//        books.get(0).setAvailable(false);
+//        books.get(0).setGivenTo(users.get(0).getName());
+//        books.get(1).setAvailable(false);
+//        books.get(1).setGivenTo(users.get(0).getName());
+//        users.get(0).setTakenBooks(tempBooks);
+//    }
+    public void giveBooksToUser() {
+        System.out.flush();
+        ArrayList<Book> tempBooks = new ArrayList<>();
+
+        System.out.print("Enter the user name: ");
+        String name = s.nextLine();
+        displayBooksId();
+        System.out.print("Enter the book id that user want (ex: 1002 1005 1003): ");
+        String idInSting = s.nextLine();
+        ArrayList<Integer> idList = stringToInt(idInSting);
+        System.out.println("Giving " + idList.size() + " books to " + name);
+
+        for (Integer integer : idList) {
+            for (Book book : books) {
+                if (integer == book.getId()) {
+                    tempBooks.add(book);
+                    book.setAvailable(false);
+                    book.setGivenTo(name);
+                }
+            }
+        }
+        for (User user : users) {
+            if (user.getName().equals(name)) {
+                user.setTakenBooks(tempBooks);
+            }
+        }
+    }
+
+
+    public void displayUsersBasicInfo() {
+        for (User user : users) {
+            user.displayBasicUserInfo();
+            System.out.println();
+        }
+    }
+    public void displayUsersDetailInfo() {
         for (User user : users) {
             user.displayUserInfo();
             System.out.println();
@@ -118,5 +163,19 @@ public class LibraryManagementSystem {
             book.displayBookInfo();
             System.out.println();
         }
+    }
+    public void displayBooksId() {
+        for (Book book : books) {
+            book.displayBooksId();
+            System.out.println();
+        }
+    }
+    public ArrayList<Integer> stringToInt(String str) {
+        String[] numbers = str.split(" ");
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (String number : numbers) {
+            arrayList.add(Integer.parseInt(number));
+        }
+        return arrayList;
     }
 }
