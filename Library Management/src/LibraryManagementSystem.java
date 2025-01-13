@@ -1,29 +1,22 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
 public class LibraryManagementSystem {
-//    Scanner s = new Scanner(System.in);
+    Scanner s = new Scanner(System.in);
 
     private ArrayList<User> users = new ArrayList<>();
     private ArrayList<Book> books = new ArrayList<>();
 
-    public void addUser() {
-//        String name = s.next();
-//        String road = s.next();
-//        String city = s.next();
-//        String house = s.next();
-//        String email = s.next();
-//        String phone = s.next();
-
-        String name, road, city, house, email, phone;
-        
+    public void initialize() {
+        // initializing all the data like 5 users and 11 books.
+        //user initializing
         Address address = new Address("123/1", "House_1", "Dhaka1");
         Contact contact = new Contact("Email_1", "Phone_1");
         User user = new User("Maktum1", address, contact);
         users.add(user);
-
 
         address = new Address("123/2", "House_2", "Dhaka2");
         contact = new Contact("Email_2", "Phone_2");
@@ -44,9 +37,8 @@ public class LibraryManagementSystem {
         contact = new Contact("Email_5", "Phone_5");
         user = new User("Maktum5", address, contact);
         users.add(user);
-    }
 
-    public void addBooks() {
+        //book initializing
         ArrayList<String> genres = new ArrayList<>();
 
         Collections.addAll(genres, "science fiction", "Adventure", "Fantasy", "Comedy");
@@ -94,11 +86,40 @@ public class LibraryManagementSystem {
         books.add(book);
     }
 
+    public void addUser() {
+        System.out.print("Enter the name of the user: ");
+        String name = s.nextLine();
+        System.out.print("Enter your city name: ");
+        String city = s.nextLine();
+        System.out.print("Enter your road: ");
+        String road = s.nextLine();
+        System.out.print("Enter your house number: ");
+        String house = s.nextLine();
+        System.out.print("Enter your email: ");
+        String email = s.nextLine();
+        System.out.print("Enter your phone number: ");
+        String phone = s.nextLine();
+
+        Address address = new Address(road, house, city);
+        Contact contact = new Contact(email, phone);
+        User user = new User(name, address, contact);
+        users.add(user);
+    }
+
+    public void addBooks() {
+
+    }
+
     public void displayUsersInfo() {
         for (User user : users) {
             user.displayUserInfo();
             System.out.println();
         }
     }
-
+    public void displayBooks() {
+        for (Book book : books) {
+            book.displayBookInfo();
+            System.out.println();
+        }
+    }
 }
