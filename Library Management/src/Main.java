@@ -12,6 +12,8 @@ public class Main {
             System.out.println("\nLibrary Management System");
             System.out.println("1. Add User");
             System.out.println("2. Display All Users Info");
+            System.out.println("3. Add Books");
+            System.out.println("4. Display Books Info");
             System.out.println("0. Exit");
             System.out.print("Choose an option: ");
 

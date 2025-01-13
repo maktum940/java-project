@@ -39,50 +39,37 @@ public class LibraryManagementSystem {
         users.add(user);
 
         //book initializing
-        ArrayList<String> genres = new ArrayList<>();
-
-        Collections.addAll(genres, "science fiction", "Adventure", "Fantasy", "Comedy");
-        Book book = new Book("Gulliver's Travels", "Jonathan Swift", genres, true, 1);
+        Book book = new Book("Gulliver's Travels", "Jonathan Swift", "Adventure", true, 1);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("The Art of War", "sun tzu", genres, true, 2);
+        book = new Book("The Art of War", "sun tzu", "military strategy", true, 2);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("Harry Potter", "Joanne Rowling", genres, true, 3);
+        book = new Book("Harry Potter", "Joanne Rowling", "Fantasy", true, 3);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("Game of Thrones", "George Raymond Martin", genres, true, 4);
+        book = new Book("Game of Thrones", "George Raymond Martin", "Fantasy", true, 4);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("Java: The Complete Reference", "Herbert Schildt", genres, true, 5);
+        book = new Book("Java: The Complete Reference", "Herbert Schildt", "Computer Science", true, 5);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("The C++ Programming Language", "Bjarne Stroustrup", genres, true, 6);
+        book = new Book("The C++ Programming Language", "Bjarne Stroustrup", "Computer Science", true, 6);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("Pattern Recognition and Machine Learning", "Christopher M. Bishop", genres, true, 7);
+        book = new Book("Pattern Recognition and Machine Learning", "Christopher M. Bishop", "Computer Science", true, 7);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("The Laws of Human Nature", "Robert Greene", genres, true, 8);
+        book = new Book("The Laws of Human Nature", "Robert Greene", "psychology", true, 8);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("The Old Man and The Sea", "Ernest Hemingway", genres, true, 9);
+        book = new Book("The Old Man and The Sea", "Ernest Hemingway", "Adventure", true, 9);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("Lights Of Reality", "Said Nursi", genres, true, 10);
+        book = new Book("Lights Of Reality", "Said Nursi", "religions", true, 10);
         books.add(book);
 
-        Collections.addAll(genres, "military strategy");
-        book = new Book("The Art if Thinking Clearly", "Rolf Dobelli", genres, true, 11);
+        book = new Book("The Art of Thinking Clearly", "Rolf Dobelli", "non-fiction", true, 11);
         books.add(book);
     }
 
@@ -107,7 +94,17 @@ public class LibraryManagementSystem {
     }
 
     public void addBooks() {
+        System.out.print("Enter the name of the book: ");
+        String title = s.nextLine();
+        System.out.print("Enter the author name: ");
+        String author = s.nextLine();
+        System.out.print("Enter all the genre the book belongs to: ");
+        String genre = s.nextLine();
+        boolean available = true;
+        int id = 0;
 
+        Book book = new Book(title, author, genre, available, id);
+        books.add(book);
     }
 
     public void displayUsersInfo() {
