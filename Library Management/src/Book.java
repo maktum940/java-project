@@ -16,7 +16,6 @@ public class Book {
         this.id = id;
     }
 
-    //getter
     public String getTitle() {return this.title;}
     public String getAuthor() {return this.author;}
     public String getGenre() {return this.genre;}
@@ -24,7 +23,6 @@ public class Book {
     public boolean isAvailable() {return this.available;}
     public int getId() {return this.id;}
 
-    //setter
     public void setTitle(String title) {this.title = title;}
     public void setAuthor(String author) {this.author = author;}
     public void setGenre(String genre) {this.genre = genre;}

@@ -7,7 +7,6 @@ public class Contact {
         this.phone = phone;
     }
 
-    //getter
     public String getEmail() {
         return email;
     }
@@ -15,7 +14,6 @@ public class Contact {
         return phone;
     }
 
-    //setter
     public void setEmail(String email) {
         this.email = email;
     }

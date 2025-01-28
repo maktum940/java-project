@@ -15,8 +15,9 @@ public class Main {
             System.out.println("3. Display Basic Users Info");
             System.out.println("4. Add Books");
             System.out.println("5. Display Books Info");
-            System.out.println("6. Checkout Books");
-            System.out.println("999. Test");
+            System.out.println("6. Check-Out Books");
+            System.out.println("7. Check-In Books");
+            System.out.println("8. Given Books");
             System.out.println("0. Exit");
             System.out.print("Choose an option: ");
 
@@ -41,9 +42,12 @@ public class Main {
                 case 6:
                     system.giveBooksToUser();
                     break;
-//                case 999:
-//                    system.test();
-//                    break;
+                case 7:
+                    system.givingBackBooks();
+                    break;
+                case 8:
+                    system.givenBooks();
+                    break;
                 case 0:
                     System.out.println("Exiting...");
                     s.close();

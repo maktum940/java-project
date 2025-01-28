@@ -42,8 +42,8 @@ public class TourManagementSystem {
     }
 
     public void addTour() {
-        String fileHotel = "D:\\Maktum\\intellij\\seu project\\java-project-main\\Tour Management\\src\\info\\hotelInfo.csv";
-        String fileFood = "D:\\Maktum\\intellij\\seu project\\java-project-main\\Tour Management\\src\\info\\foodInfo.csv";
+        String fileHotel = "home\\good-night\\Desktop\\code\\java-project\\Tour Management\\src\\info\\hotelInfo.csv";
+        String fileFood = "home\\good-night\\Desktop\\code\\java-project\\Tour Management\\src\\info\\foodInfo.csv";
 
         try{
             hotelFileRead(fileHotel);

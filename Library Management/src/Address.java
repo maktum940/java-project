@@ -9,7 +9,6 @@ public class Address {
         this.city = city;
     }
 
-    //getter
     public String getRoad() {
         return road;
     }
@@ -18,7 +17,6 @@ public class Address {
         return city;
     }
 
-    //setter
     public void setHouse(String house) {
         this.house = house;
     }

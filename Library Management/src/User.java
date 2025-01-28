@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class User {
+public class User{
     private String name;
     private Contact contact;
     private Address address;
@@ -12,13 +12,11 @@ public class User {
         this.contact = contact;
     }
 
-    //getter
     public String getName() {return name;}
     public Contact getContact() {return contact;}
     public Address getAddress() {return address;}
     public ArrayList<Book> getTakenBooks() {return takenBooks;}
 
-    //setter
     public void setName(String name) {this.name = name;}
     public void setContact(Contact contact) {this.contact = contact;}
     public void setAddress(Address address) {this.address = address;}
